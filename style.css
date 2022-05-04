@@ -1,0 +1,77 @@
+:root {
+    --bg_radial: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+body {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    width: 24em;
+    height: 24em;
+    border-radius: 7em;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+button:hover {
+    animation: glow 250ms ease forwards;
+}
+
+#bg {
+    padding: 0 0 0 0;
+    background-image: var(--bg_radial);
+    width: 25em;
+    height: 25em;
+    border-radius: 5em;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+#box {
+    background-color: rgba(255, 255, 255, 0);
+    border: solid;
+    border-color: white;
+    border-width: 1.2em;
+    width: 17em;
+    height: 17em;
+    border-radius: 4em;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+#lens {
+    border: solid;
+    border-color: white;
+    border-radius: 50%;
+    border-width: 1em;
+    width: 8em;
+    height: 8em;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    bottom: 1.4em;
+}
+
+#flash {
+    border: solid;
+    border-color: white;
+    border-radius: 50%;
+    border-width: .5em;
+    width: 2em;
+    height: 2em;
+    position: relative;
+    bottom: 1em;
+    left: 2.2em;
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+}
