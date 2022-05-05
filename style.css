@@ -19,8 +19,25 @@ button {
     align-content: center;
 }
 
-button:hover {
-    animation: glow 250ms ease forwards;
+button:focus {
+    width: 21em;
+    height: 21em;
+}
+
+button:focus #box {
+    animation: to_border_box 500ms ease forwards;
+}
+
+button:focus #lens {
+    animation: to_border_lens 500ms ease forwards;
+}
+
+button:focus #mask {
+    animation: to_border_mask 500ms ease forwards;
+}
+
+button:focus #flash {
+    animation: to_border_flash 500ms ease forwards;
 }
 
 #bg {
@@ -32,10 +49,15 @@ button:hover {
     display: grid;
     justify-content: center;
     align-content: center;
+    animation: to_in_glow 500ms ease-out forwards;
+}
+
+#bg:hover {
+    animation: to_out_glow 250ms ease-out forwards;
 }
 
 #box {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: transparent;
     border: solid;
     border-color: white;
     border-width: 1.2em;
@@ -45,6 +67,7 @@ button:hover {
     display: grid;
     justify-content: center;
     align-content: center;
+    animation: to_bg_box 500ms ease forwards;
 }
 
 #lens {
@@ -54,11 +77,14 @@ button:hover {
     border-width: 1em;
     width: 8em;
     height: 8em;
-    display: flex;
+    display: grid;
     justify-self: center;
     align-self: center;
+    justify-content: center;
+    align-content: center;
     position: relative;
     bottom: 1.4em;
+    animation: to_bg_lens 500ms ease forwards;
 }
 
 #flash {
@@ -74,4 +100,156 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-self: end;
+    animation: to_bg_flash 500ms ease forwards;
+}
+
+#mask {
+    background-color: transparent;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    animation: to_bg_mask 500ms ease forwards;
+}
+
+@keyframes to_out_glow {
+    from {
+        box-shadow: 0 0 0 0 black;
+    }
+    to {
+        box-shadow: 0 0 0 1.5em black;
+    }
+}
+
+@keyframes to_in_glow {
+    from {
+        box-shadow: 0 0 0 1.5em black;
+    }
+    to {
+        box-shadow: 0 0 0 0 black;
+    }
+}
+
+@keyframes to_border_box {
+    from {
+        background-color: transparent;
+        border-color: white;
+        width: 17em;
+        height: 17em;
+    }
+
+    to {
+        background-color: white;
+        border-color: transparent;
+        width: 17.5em;
+        height: 17.5em;
+    }
+}
+
+@keyframes to_border_lens {
+    from {
+        width: 8em;
+        height: 8em;
+    }
+    to {
+        background-image: var(--bg_radial);
+        width: 13.3em;
+        height: 13.3em;
+    }
+}
+
+@keyframes to_border_flash {
+    from {
+        background-color: none;
+        width: 2em;
+        height: 2em;
+        bottom: 1em;
+        top: 0;
+        left: 2.2em;
+    }
+    to {
+        background-color: #693acd;
+        width: 3em;
+        height: 3em;
+        bottom: 0;
+        top: .5em;
+        left: .8em;
+    }
+}
+
+@keyframes to_border_mask {
+    from {
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+    }
+    to {
+        background-color: white;
+        width: 8.6em;
+        height: 8.6em;
+        border-radius: 50%;
+    }
+}
+
+@keyframes to_bg_box {
+    from {
+        background-color: white;
+        border-color: transparent;
+        width: 17.5em;
+        height: 17.5em;
+    }
+
+    to {
+        background-color: transparent;
+        border-color: white;
+        width: 17em;
+        height: 17em;
+    }
+}
+
+@keyframes to_bg_lens {
+    from {
+        background-image: var(--bg_radial);
+        width: 13.3em;
+        height: 13.3em;
+    }
+
+    to {
+        width: 8em;
+        height: 8em;
+    }
+}
+
+@keyframes to_bg_flash {
+    from {
+        background-color: #693acd;
+        width: 3em;
+        height: 3em;
+        bottom: 0;
+        top: .5em;
+        left: .8em;
+    }
+    to {
+        background-color: none;
+        width: 2em;
+        height: 2em;
+        bottom: 1em;
+        top: 0;
+        left: 2.2em;
+    }
+}
+
+@keyframes to_bg_mask {
+    from {
+        background-color: white;
+        width: 8.6em;
+        height: 8.6em;
+        border-radius: 50%;
+    }
+    to {
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+    }
 }
